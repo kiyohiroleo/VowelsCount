@@ -24,8 +24,10 @@ class CountVowels(unittest.TestCase):
 
     # Teste com uma frase próxima de uma entrada real da aplicação.
     def test_sentence(self):
-        self.assertEqual(count_vowels("Teste e Validacao de Sistemas!"), 12)
+        self.assertEqual(count_vowels("aeiouaeiouaeiou"), 15)
 
 if __name__ == '__main__':
     unittest.main()
+    
 #ou: 'python3 -m unittest unittest_vowels.py -v' no terminal para exibir cada teste separadamente.
+#'python3 -m coverage run -m unittest unittest_vowels.py' e depois 'python3 -m coverage report' para exibir a porcentagem de cobertura no trabalho.
