@@ -72,11 +72,12 @@ python -m coverage report -m
 Resultado obtido após a execução dos seis testes:
 
 ```text
-Name             Stmts   Miss  Cover
-------------------------------------
-count_utils.py       4      0   100%
-------------------------------------
-TOTAL                4      0   100%
+Name                 Stmts   Miss  Cover
+----------------------------------------
+count_utils.py           4      0   100%
+unittest_vowels.py      16      0   100%
+----------------------------------------
+TOTAL                   20      0   100%
 ```
 
 A cobertura de 100% do módulo testado supera o mínimo de 80% exigido pela Trilha B.
