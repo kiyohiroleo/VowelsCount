@@ -6,7 +6,7 @@ class CountVowels(unittest.TestCase):
     #Teste com uma String vazia.
     def test_empty_string(self):
         self.assertEqual(count_vowels(""), 0)
-    #Teste usando um valor numérico como entrada, caso a entrada cause um TypeError, está correto.
+    #Teste usando um valor numérico como entrada.
     def test_number(self):
         with self.assertRaises(TypeError):
             count_vowels(0)
@@ -26,8 +26,18 @@ class CountVowels(unittest.TestCase):
     def test_sentence(self):
         self.assertEqual(count_vowels("aeiouaeiouaeiou"), 15)
 
+    # Teste usando None como entrada.
+    def test_none(self):
+        with self.assertRaises(TypeError):
+            count_vowels(None)
+
+    # Teste que apenas as vogais sem acento são contabilizadas.
+    def test_accented_vowels(self):
+        self.assertEqual(count_vowels("áéíóú"), 0)
+
+    # Teste se vogais repetidas são contabilizadas individualmente.
+    def test_repeated_vowels(self):
+        self.assertEqual(count_vowels("banana"), 3)
+
 if __name__ == '__main__':
     unittest.main()
-    
-#ou: 'python3 -m unittest unittest_vowels.py -v' no terminal para exibir cada teste separadamente.
-#'python3 -m coverage run -m unittest unittest_vowels.py' e depois 'python3 -m coverage report' para exibir a porcentagem de cobertura no trabalho.
