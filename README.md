@@ -47,7 +47,10 @@ python -m unittest unittest_vowels.py -v
 | Texto sem vogais | `"wxyz"` | `0` | Verificar uma classe válida sem ocorrências. |
 | Vogais e símbolos | `"a!e@i#o$u%"` | `5` | Confirmar que símbolos não alteram a contagem. |
 | Maiúsculas e minúsculas | `"OpenAI"` | `4` | Confirmar que a contagem não diferencia maiúsculas de minúsculas. |
-| Frase completa | `"Teste e Validacao de Sistemas!"` | `12` | Exercitar espaços, palavras, repetição de vogais e pontuação. |
+| Sequência de vogais | `"aeiouaeiouaeiou"` | `15` | Confirmar a contagem de uma sequência formada apenas por vogais. |
+| Valor nulo | `None` | `TypeError` | Rejeitar outra entrada que não seja texto. |
+| Vogais acentuadas | `"áéíóú"` | `0` | Documentar que a função considera apenas as vogais sem acento (`aeiou`). |
+| Vogais repetidas | `"banana"` | `3` | Confirmar que cada ocorrência repetida é contabilizada. |
 
 Os casos exercitam os fluxos da função `count_vowels`: validação do tipo da entrada,
 normalização de maiúsculas e minúsculas, seleção dos caracteres que pertencem ao
@@ -69,15 +72,14 @@ python -m coverage run --source=count_utils -m unittest unittest_vowels.py
 python -m coverage report -m
 ```
 
-Resultado obtido após a execução dos seis testes:
+Resultado obtido após a execução dos nove testes:
 
 ```text
-Name                 Stmts   Miss  Cover
-----------------------------------------
-count_utils.py           4      0   100%
-unittest_vowels.py      16      0   100%
-----------------------------------------
-TOTAL                   20      0   100%
+Name             Stmts   Miss  Cover
+------------------------------------
+count_utils.py       4      0   100%
+------------------------------------
+TOTAL                4      0   100%
 ```
 
 A cobertura de 100% do módulo testado supera o mínimo de 80% exigido pela Trilha B.
